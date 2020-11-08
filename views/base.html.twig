@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block head %}
+    <title>{% block title%}{% endblock %} - Warm place</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="{% block metaDescription %}{% endblock %}">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    {% block scripts %}{% endblock %}
+  {% endblock %}
+</head>
+<body>
+<header>
+    <div class="get-in-touch">
+        <div class="contact-details">
+            <div class="detail">
+                <img draggable="false" src="/images/icons/ph2.png" alt="phone icon">
+                <span>01604 249 481</span>
+            </div>
+
+            <div class="detail">
+                <img draggable="false" src="/images/icons/e4.png" alt="phone icon">
+                <span>wp@bla.gmail</span>
+            </div>
+        </div>
+    </div>
+    <div class="logo">
+        <span class="logo-title">Warm | place</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a draggable="false" class="menu-button {% block rentMenuLink %}{% endblock %}" href="/">Properties</a></li>
+        <li><a draggable="false" class="menu-button {% block aboutMenuLink %}{% endblock %}" href="/about">About us</a></li>
+        <li><a draggable="false" class="menu-button {% block contactMenuLink %}{% endblock %}" href="/contact">Find us</a></li>
+      </ul>
+    </nav>
+</header>
+<h1 class="middle-title"><span>{% block pageTitle %}{% endblock %}</span></h1>
+<main>
+{% block main %}{% endblock %}
+</main>
+<footer>
+  
+  <div class="icons">
+    <div class="icon">
+      <a draggable="false" href="https://facebook.com" title="Our facebook page">
+        <img draggable="false" src="/images/icons/fb22.png" alt="facebook icon">
+      </a>
+    </div>
+    <div class="icon">
+      <a draggable="false" href="https://twitter.com" title="Our twitter page">
+        <img draggable="false" src="/images/icons/tw2.png" alt="twitter icon">
+      </a>
+    </div>
+  </div>
+  <div class="copyright">
+    <span>&#169; 2019 example.com</span>
+  </div>
+</footer>
+</body>
+</html>

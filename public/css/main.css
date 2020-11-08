@@ -1,0 +1,1031 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Raleway&display=swap');
+/* General settings */
+* { box-sizing: border-box; }
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100%;
+  font-size: 14px;
+  color: #222222;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+
+noscript {
+  display: block;
+  font-size: 1.2em;
+}
+
+noscript a {
+  text-decoration: underline;
+  font-size: 0.9em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Abel';
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  padding-bottom: 40px;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+a {
+  color: #222222;
+}
+
+textarea,
+input,
+select,
+button {
+  outline: none;
+  margin: 5px 0;
+}
+
+textarea, input, select {
+  padding: 6px;
+  width: 350px;
+  border-radius: 2px;
+  border: 1px solid #e4e4e4;
+  display: inline-block;
+}
+
+input[type=checkbox] {
+  width: 20px;
+  display: inline-block;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  border: 1px solid #606060;
+}
+
+p {
+  line-height: 1.3;
+  font-size: 1.1em;
+}
+
+/* Header */
+header {
+  padding-bottom: 30px;
+}
+
+/*   top part */
+.get-in-touch {
+  padding: 10px 10px 0 10px;
+  text-align: right;
+}
+
+.contact-details > div {
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.contact-details > div > img {
+  display: inline-block;
+  width: 17px;
+  vertical-align: sub;
+  margin-right: 5px;
+}
+
+.contact-details > div > span {
+  font-family: 'Arial';
+  color: #3d3d3d;
+}
+
+.icons {
+  text-align: center;
+}
+
+.icon {
+  display: inline-block;
+  width: 50px;
+}
+
+/*   middle part */
+.logo {
+  padding: 20px 0 30px 0;
+  text-align: center;
+}
+
+.logo span {
+  letter-spacing: 10px;
+  font-size: 1.9em;
+  color: #3d3d3d;
+  text-transform: uppercase;
+  font-family: 'Raleway';
+}
+
+nav {
+  text-align: center;
+}
+
+.menu-button {
+  display: block;
+  text-transform: uppercase;
+  outline: none;
+  width: 140px;
+  padding: 14px 0px;
+  letter-spacing: 2px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #3d3d3d;
+  font-weight: 600;
+}
+
+.active-menu,
+nav > ul >  li:hover {
+  border-bottom: 1px solid #3e3e3e;
+}
+
+nav > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav > ul > li {
+  display: inline-block;
+  margin: 1px 10px;
+}
+.middle-title {
+  width: 100%;
+  border-bottom: 1px solid #dcdcdc;
+  line-height: 0.1em;
+  font-size: 1em;
+  font-family: inherit;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.middle-title span {
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 5px 10px;
+  border: 1px solid #3e3e3e;
+  position: relative;
+
+}
+
+/* Main content */
+
+main {
+  min-height: 100%;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/*   title */
+.simple-title {
+  font-size: 1.8em;
+  margin: 20px 0 15px 0;
+  text-transform: uppercase;
+}
+
+/*   fitler */
+.filters {
+  display: inline-block;
+  position: relative;
+  user-select: none;
+  padding: 8px;
+  border-left: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
+  border-bottom: 3px solid #cccccc;
+  width: 380px;
+  height: 95px;
+
+  transition-property: width, height;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
+}
+
+.expand {
+  width: 480px;
+  height: 290px;
+}
+
+.filter-top {
+  text-align: left;
+}
+
+.filter-top > div {
+  display: inline-block;
+}
+
+.filter-top .caption {
+  font-size: 1.2em;
+  color: #595959;
+  text-transform: uppercase;
+}
+
+.filter-top .reset-button {
+  padding: 2px 6px;
+  display: inline-block;
+  text-decoration: underline;
+}
+
+.filter .grey-title {
+  color: #6e6e6e;
+  display: block;
+  text-transform: uppercase;
+  padding: 5px 0 5px 0;
+}
+
+.filter ul {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0;
+  font-size: 1.1em;
+  padding: 0;
+}
+
+.filter ul li {
+  display: inline-block;
+  padding: 4px 2px 4px 2px;
+}
+
+.active-filter {
+  border-bottom: 2px solid #494949;
+}
+
+.filter ul li:hover {
+  border-bottom: 2px solid #b58e42;
+}
+
+.filters .search-button span,
+.filters .extend-button span,
+.filter ul li,
+.reset-button,
+.extend-button img
+ {
+  cursor: pointer;
+}
+
+.extend-button {
+  position: absolute;
+  top: -0.75em;
+  background-color: #ffffff;
+  width: 2.5em;
+  right: 10px;
+}
+
+.extend-button img {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0 auto;
+
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+}
+
+.close-button {
+  transform: rotate(45deg);
+}
+
+.search-button {
+  padding: 14px;
+}
+
+.search-button span {
+  text-transform: uppercase;
+  border: 2px solid #545454;
+  padding: 4px 15px;
+}
+
+.filter-button span:hover {
+  background-color: #3e3e3e;
+  color: #efeeee;
+}
+
+.filter-extension {
+  display: none;
+}
+
+/*   found items */
+.found-items {
+  font-size: 1.3em;
+  margin: 15px 0 8px 0;
+}
+
+.found-items span:last-child {
+  font-size: 0.9em;
+}
+
+.search-result-amount {
+  font-weight: 600;
+}
+
+/*   about us page */
+.about-us p {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.about-services article {
+  width: 300px;
+  display: inline-block;
+  margin: 10px;
+}
+
+.about-services p {
+  margin: 20px 0;
+}
+
+.about-services h3 {
+  border-bottom: 1px dashed #c9c9c9;
+  padding: 0 0 20px 0;
+  font-size: 1.7em;
+}
+
+/*   block container */
+.block-container {
+  min-height: 600px;
+  width: 96%;
+  margin: auto;
+  text-align: left;
+  position: relative;
+}
+
+/* ticket */
+.flow {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.ticket {
+  border: 2px solid #353535;
+  text-align: center;
+  font-size: 1.1em;
+  display: inline-block;
+  margin: 9px 0 9px 2%;
+  border-radius: 2px;
+  width: 47%;
+  position: relative;
+}
+
+/* ticket-slider */
+.slider {
+  position: relative;
+  background-color: #e5e5e5;
+  color: #efeeee;
+}
+
+.ticket .slider {
+  width: 100%;
+  height: 240px;
+}
+
+.current-slide {
+  display: block;
+}
+
+.slide {
+  display: none;
+}
+
+.slider img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.slider-button {
+  position: absolute;
+  cursor: pointer;
+  height: 100%;
+  width: 20%;
+  font-size: 1.2em;
+  color: #3b3b3b;
+  user-select: none;
+}
+
+.slider-button:hover {
+  background-color: rgba(232, 232, 232, 0.5);
+}
+
+.slider-button span {
+  display: block;
+  position: relative;
+  padding: 5px 10px;
+  top: 50%;
+  margin-top: -0.6em;
+}
+
+.right-slider-button {
+  right: 0;
+}
+
+.left-slider-button {
+  left: 0;
+}
+
+.slide-caption {
+  bottom: 5px;
+  left: 5px;
+}
+
+.slide-number,
+.slide-caption,
+.action-button {
+  position: absolute;
+  border-radius: 3px;
+  padding: 3px 6px 5px 6px;
+  background-color: #353535;
+  z-index: 3;
+}
+
+.action-button {
+  background-color: #353535;
+  color: #e1e1e1;
+  top: 5px;
+  left: 5px;
+}
+
+.slide-number:hover,
+.slide-caption:hover {
+  background-color: #353535;
+}
+
+.slide-number {
+  right: 5px;
+  top: 5px;
+}
+
+/* ticket info */
+.ticket-info {
+  background-color: #fcfcfc;
+  display: flex;
+  width: 100px;
+  flex-flow: column;
+  border-left: 1px solid #e5e5e5;
+  text-transform: uppercase;
+  justify-content: space-around;
+}
+
+.ticket-info > div {
+  padding: 3px 4px;
+  font-weight: 400;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.ticket-info > div:last-child {
+  border: none;
+}
+
+.ticket-info span {
+  display: block;
+}
+
+.ticket-info h2 {
+  font-size: 1em;
+  font-family: inherit;
+}
+
+.ticket .adress:hover {
+  border-top: 2px solid #a36060;
+}
+
+.ticket a {
+  text-decoration: none;
+}
+
+.ticket .adress {
+  background-color: #353535;
+  color: #f2f2f2;
+  text-transform: uppercase;
+  padding: 5px;
+  border-top: 2px solid #848b99;
+}
+
+.ticket-info-title {
+  width: 1.3em;
+  margin: 0 auto;
+  user-select: none;
+}
+
+/*   opening times table */
+.info-table {
+  margin: 0 auto;
+  width: 350px;
+  font-size: 1.1em;
+  border-collapse: collapse;
+}
+
+.info-table tr:last-child {
+  border-bottom: 0;
+}
+
+.info-table thead {
+  border-bottom: 1px solid #c8c8c8;
+}
+
+.info-table thead th:first-child {
+  border-right: 1px solid #c8c8c8;
+}
+
+.info-table tbody tr,
+.info-table thead tr {
+  border-bottom: 1px solid #c8c8c8;
+}
+
+.info-table th {
+  font-weight: 400;
+  padding: 7px 20px;
+  text-transform: uppercase;
+}
+
+.info-table td {
+  text-align: center;
+  padding: 7px 10px;
+  width: 200px;
+}
+
+/* office address */
+.office-address {
+  padding: 10px 0;
+  font-size: 1.2em;
+  color: #676767;
+}
+
+/* google map*/
+.google-map {
+  position: relative;
+  padding-bottom: 410px;
+  height: 0;
+  width: 70%;
+  display: inline-block;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.google-map iframe {
+  position: absolute;
+  top: 0;
+  border: 2px solid #414141;
+  border-radius: 2px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* pagination */
+.pagination {
+  text-align: center;
+  margin: 13px 0;
+  display: block;
+  font-weight: 500;
+  user-select: none;
+}
+
+.pagination ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pagination ul li {
+  display: inline-block;
+  border-radius: 2px;
+  position: relative;
+  transition: 0.3s;
+  cursor: pointer;
+  background-color: #efefef;
+}
+
+.pagination ul li span {
+  padding: 4px 10px;
+  border-radius: 2px;
+  outline: none;
+  display: block;
+}
+
+.active-page {
+  background-color: #3e3e3e;
+  color: #efeeee;
+  font-size: 1.2em;
+}
+
+.pagination ul li:hover {
+  background-color: #ece2d0;
+}
+
+/* house-photos */
+.house-photos {
+  width: 80%;
+  margin: auto;
+}
+
+.house-photos .slider {
+  height: 400px;
+  width: 100%;
+  border: 1px solid #cccccc;
+  font-size: 1.2em;
+}
+
+/* tabs */
+.tab-titles {
+  font-size: 1.2em;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.tab-title {
+  display: inline-block;
+  padding: 8px 16px;
+  font-family: 'Raleway';
+  text-transform: uppercase;
+  background-color: #ececec;
+  cursor: pointer;
+  transition: 0.3s;
+  user-select: none;
+}
+
+.tab-title:hover {
+  background-color: #be7f7f;
+  color: #414141;
+}
+
+.active-tab {
+  background-color: #212121;
+  color: #e1e1e1;
+}
+
+.tab-values {
+  width: 100%;
+  font-size: 1.2em;
+  min-height: 470px;
+  padding: 10px;
+  overflow: hidden;
+  border-top: 1px solid #ececec;
+  position: relative;
+  z-index: 1;
+}
+
+.tab-value {
+  display: none;
+}
+
+.tab-value[data-tab-id="1"] {
+  display: block;
+}
+
+.tab-value .item {
+  width: 90%;
+  margin: 0 auto;
+  overflow: auto;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.tab-value .item:last-child {
+  border-bottom: 0;
+}
+
+.tab-value .item:last-child .item-heading {
+  font-weight: 500;
+}
+
+.tab-value .items .item-value {
+  font-weight: 500;
+  float: right;
+}
+
+.tab-value .item-heading {
+  float: left;
+  text-transform: uppercase;
+  color: #3e3e3e;
+}
+
+.tab-value span {
+  padding: 15px 10px;
+}
+
+.tab-value .heading {
+  font-size: 1.1em;
+  color: #5a5a5a;
+  text-align: right;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.tab-value p {
+  text-align: center;
+  margin: 0;
+  padding: 30px 0;
+}
+
+/* footer */
+footer {
+  background-color: #212121;
+  margin-top: 30px;
+  padding: 35px 0 0 0;
+}
+
+.copyright {
+  padding: 30px 0 10px 0;
+  text-align: center;
+}
+
+.copyright span {
+  text-transform: uppercase;
+  padding: 5px;
+  color: #e1e1e1;
+  font-size: 0.9em;
+}
+
+/* loader */
+.loader {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  margin-left: -2.5rem;
+  margin-top: -2.5rem;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  border-top: 0.8em solid #a26161;
+  border-right: 0.8em solid #fff;
+  border-bottom: 0.8em solid #3c3c3c;
+  border-left: 0.8em solid #fff;
+  animation: rotateCircleLoader 1.3s infinite linear;
+}
+
+@keyframes rotateCircleLoader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Message box */
+.empty-result {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 1.6em;
+  color: #b5b5b5;
+  font-family: 'Abel';
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 17px;
+  }
+
+  .active-filter {
+    border-bottom: 0;
+    background-color: #8da9ba;
+  }
+
+  .get-in-touch {
+    text-align: center;
+  }
+
+  .contact-details > div {
+    display: block;
+  }
+
+  .menu-button {
+    margin: auto;
+  }
+
+  header {
+    text-align: center;
+  }
+
+  .tab-value .item {
+    text-align: center;
+    width: 100%;
+  }
+
+  .tab-value .item-heading,
+  .tab-value .items .item-value {
+    width: 100%;
+    display: block;
+    float: none;
+    text-align: center;
+  }
+
+  .tab-title {
+    float: none;
+    width: 100%;
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid #b8b8b8;
+  }
+
+  .tab-title:last-child {
+    border: 0;
+  }
+
+  .tab-value .heading {
+    text-align: center;
+  }
+
+  .tab-titles {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  nav {
+    margin: 0 0 20px 0;
+  }
+
+  .icons {
+    text-align: right;
+    float: none;
+    width: 100%;
+  }
+
+  nav > ul > li {
+    border-right: 0;
+    width: 100%;
+    display: block;
+  }
+
+  nav > ul > li:hover {
+    border-bottom: none;
+  }
+
+  nav > ul > li:last-child {
+    border-bottom: 0;
+  }
+
+  .filters {
+    width: 90%;
+    height: 100%;
+  }
+
+  .flow {
+    flex-flow: column nowrap;
+  }
+
+  .ticket-info {
+    border: 0;
+    border-top: 1px solid #e5e5e5;
+    width: 100%;
+    flex-flow: row wrap;
+  }
+
+  .ticket-info div {
+    width: 50%;
+    padding: 6px;
+  }
+
+  .ticket-info div:nth-child(odd) {
+    border-right: 1px solid #d9d9d9;
+  }
+
+  .ticket {
+    display: block;
+    margin: 60px 0;
+    border-radius: 2px;
+    width: 100%
+  }
+
+  .pagination {
+    font-size: 1.3em;
+  }
+
+  .ticket .slider, .house-photos .slider {
+    width: 100%;
+    height: 280px;
+  }
+
+  .about-us p {
+    width: 95%;
+  }
+
+  .filter ul li {
+    display: block;
+    border-bottom: 1px solid #e2e2e2;
+  }
+
+  .filter ul {
+    display: block;
+  }
+
+  .filter ul li:last-child {
+    border-bottom: 0;
+  }
+
+  textarea,
+  input,
+  select,
+  .info-table,
+  .google-map,
+  .about-services article,
+  .about-us p,
+  .about-services article,
+  .filter ul
+  {
+    width: 96%;
+    margin: auto;
+  }
+
+  .filter ul li:focus {
+    outline: none;
+  }
+
+  .middle-title {
+    font-size: 0.7em;
+    font-family: inherit;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}
+
+@media (hover:none) {
+    .filter ul li,
+    .tab-title,
+    .slider-button
+    {
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .filter ul li:hover {
+      border-bottom: 1px solid #e2e2e2;
+    }
+
+    .filter ul li:last-child:hover {
+      border-bottom: 0;
+    }
+
+    .tab-title:hover {
+        background-color: rgba(64, 64, 64, 0.9);
+        color: #e1e1e1;
+    }
+}
+
+@media only screen and (max-width: 800px) and (min-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  .ticket-info {
+    width: 120px;
+  }
+
+  .tab-value .item {
+    width: 100%;
+  }
+
+  .pagination {
+    font-size: 1.1em;
+  }
+
+  .block-container {
+    text-align: center;
+  }
+
+  .ticket .slider {
+    width: 100%;
+    height: auto;
+  }
+
+  .house-photos .slider {
+    height: 300px;
+  }
+
+  .filters {
+    width: 90%;
+    height: 100%;
+  }
+
+  .ticket {
+    width: 90%;
+  }
+}

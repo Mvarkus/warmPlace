@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+  {{ parent() }}
+{% endblock %}
+{% block title %}Property{% endblock %}
+{% block scripts %}
+<script defer type="text/javascript" src="/js/Slider.js"></script>
+<script defer type="text/javascript" src="/js/singlePropertyPage.js"></script>
+{% endblock %}
+
+{% block pageTitle %}Property information{% endblock %}
+
+{% block main %}
+<noscript>
+  <p>Your browser doesn't support JavaScript or you have disabled JavaScript.</p>
+  <p>Please, download modern web browser or enable JavaScript in your browser</p>
+
+  <div>Browsers: <a href="https://www.mozilla.com/">Firefox browser</a>,
+  <a href="https://www.google.com/chrome/">Chrome browser</a>,
+  <a href="https://www.opera.com/">Opera browser</a></div>
+</noscript>
+
+<div class="house-photos">
+  <div class="slider">
+    {% for image in ticket.images %}
+    <div class="{{ loop.index == 1 ? 'current-slide' : 'slide' }}">
+      <img src="{{ image.image_path }}" alt="{{ image.image_title }}">
+      <div class="slide-number">
+        <span class="current">{{ loop.index }}</span>/<span class="total">{{ ticket.images|length }}</span>
+      </div>
+      <div class="slide-caption">{{ image.image_title }}</div>
+    </div>
+    {% endfor %}
+
+    <div class="left-slider-button slider-button"><span >&#10094;</span></div>
+    <div class="right-slider-button slider-button"><span >&#10095;</span></div>
+  </div>
+</div>
+
+<div class="tab-titles">
+  <div class="tab-title active-tab" data-target-id="1">Details</div>
+  <div class="tab-title" data-target-id="2">Price</div>
+  <div class="tab-title" data-target-id="3">Description</div>
+</div>
+
+<div class="tab-values">
+  <div class="tab-value" data-tab-id="1">
+    <div class="section">
+      <div class="heading">Property details</div>
+    </div>
+    <div class="items">
+      <div class="item">
+        <span class="item-heading">Fursnishing</span>
+        <span class="item-value">{{ ticket.furnished }}</span>
+      </div>
+      <div class="item">
+        <span class="item-heading">Address</span>
+        <span class="item-value">
+        <a target="_blank"
+            title="google"
+            draggable="false"
+            href="https://www.google.com/maps/search/?api=1&query={{ ticket.address|url_encode }}">
+              {{ ticket.address }}
+        </a></span>
+      </div>
+
+      <div class="item">
+        <span class="item-heading">Condition</span>
+        <span class="item-value">{{ ticket.condition }}</span>
+      </div>
+
+      <div class="item">
+        <span class="item-heading">Date available</span>
+        <span class="item-value"><time datetime="{{ ticket.available_from }}">{{ ticket.available_from }}</time></span>
+      </div>
+
+      <div class="item">
+        <span class="item-heading">Type</span>
+        <span class="item-value">{{ ticket.type_title }}</span>
+      </div>
+
+      <div class="item">
+        <span class="item-heading">Available bedrooms</span>
+        <span class="item-value">{{ ticket.available_bedrooms }}</span>
+      </div>
+
+      <div class="item">
+        <span class="item-heading">Total bedrooms</span>
+        <span class="item-value">{{ ticket.total_bedrooms }}</span>
+      </div>
+
+      <div class="item">
+        <span class="item-heading">Bathrooms</span>
+        <span class="item-value">{{ ticket.bathrooms_amount }}</span>
+      </div>
+
+      <div class="item">
+        <span class="item-heading">Property Reference Number</span>
+        <span class="item-value">{{ ticket.property_id }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="tab-value" data-tab-id="2">
+    <div class="heading">Property fees</div>
+    <div class="items">
+        <div class="item">
+          <span class="item-heading">Pay per week</span>
+          <span class="item-value">{{ ticket.price_per_week }}&pound;</span>
+        </div>
+
+        <div class="item">
+          <span class="item-heading">Rent includes</span>
+          <span class="item-value">{{ ticket.bills_included }}</span>
+        </div>
+
+        <div class="item">
+          <span class="item-heading">Deposit</span>
+          <span class="item-value">{{ ticket.deposit }}&pound;</span>
+        </div>
+    </div>
+  </div>
+  <div class="tab-value" data-tab-id="3">
+    <div class="heading">Description of the Property</div>
+    <p>{{ ticket.comment }}</p>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,121 @@
+{% extends 'admin_panel/base.html.twig' %}
+
+{% block title %}Create Property{% endblock %}
+
+{% block header %}
+  {{ parent() }}
+{% endblock %}
+{% block scripts %}
+<script src="/js/admin/create.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block createMenuLink %}active-menu{% endblock %}
+
+{% block pageTitle %}Create property{% endblock %}
+
+{% block main %}
+    <form class="property-form"
+          action="/a05022019pdmi/create/property"
+          method="POST"
+          enctype="multipart/form-data">
+
+      <div class="form-title">
+        Property details
+      </div>
+      <ul class="error-box">
+        {% if success %}
+          <li class="success">The property was added successfully</li>
+        {% else %}
+          {% for error in errors %}
+            <li class="error">{{ error }}</li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+      <label for="active">Is active *</label>
+      <select required name="active" id="active">
+        <option {{ flushedData.active.0 ? 'selected' }} value="0">Not active</option>
+        <option value="1" {{ flushedData.active.1 ? 'selected' }}>Active</option>
+      </select>
+
+      <label for="furnishing">Furnishing *</label>
+      <select required name="furnishing" id="furnishing">
+        <option {{ flushedData.active.0 ? 'selected' }} value="0">Unfurnished</option>
+        <option {{ flushedData.active.1 ? 'selected' }} value="1">Furnished</option>
+      </select>
+
+      <label for="first_address_line">1 address line *</label>
+      <input value="{{ flushedData.first_address_line }}" required type="text" name="first_address_line" placeholder="e.g. 23 Baker Street" id="first_address_line">
+
+      <label for="second_address_line">2 address line</label>
+      <input value="{{ flushedData.second_address_line }}" type="text" name="second_address_line" placeholder="" id="second_address_line">
+
+      <label for="post_code">Post code *</label>
+      <input value="{{ flushedData.post_code }}" required type="text" name="post_code" placeholder="e.g. NN1 33W" id="post_code">
+
+      <label for="condition">Condition *</label>
+      <select required name="condition" id="condition">
+        <option {{ flushedData.condition == 'Perfect' ? 'selected' }} value="Perfect" selected>Perfect</option>
+        <option {{ flushedData.condition == 'Good' ? 'selected' }} value="Good">Good</option>
+        <option {{ flushedData.condition == 'Average' ? 'selected' }} value="Average">Average</option>
+      </select>
+
+      <label for="date_available">Date available *</label>
+      <input required value="{{ todaysDate }}" type="text" name="date_available" placeholder="e.g. YYYY-MM-DD" id="date_available">
+
+      <label for="type">Type *</label>
+      <select required name="type" id="type">
+        {% for type in types %}
+          <option  value="{{ type.type_id }}">{{ type.type_title }}</option>
+        {% endfor %}
+      </select>
+
+      <label for="total_bedrooms">Total bedrooms *</label>
+      <input value="{{ flushedData.total_bedrooms }}" required type="text" name="total_bedrooms" placeholder="e.g. 4" id="total_bedrooms">
+
+      <label for="available_bedrooms">Available bedrooms *</label>
+      <input value="{{ flushedData.available_bedrooms }}" required type="text" name="available_bedrooms" placeholder="e.g. 2" id="available_bedrooms">
+
+      <label for="bathrooms">Bathrooms *</label>
+      <input value="{{ flushedData.bathrooms }}" required type="text" name="bathrooms" placeholder="e.g. 1" id="bathrooms">
+
+      <label>Rent includes</label>
+      <div class="rent-includes">
+        <label for="gas">Gas</label>
+        <input type="checkbox" {{ flushedData.rent.0 ? 'checked' }} name="rent[]" value="1" id="gas">
+
+        <label for="Water">Water</label>
+        <input type="checkbox" {{ flushedData.rent.1 ? 'checked' }} name="rent[]" value="2" id="Water">
+
+        <label for="electricity">Electricity</label>
+        <input type="checkbox" {{ flushedData.rent.2 ? 'checked' }} name="rent[]" value="3" id="electricity">
+
+        <label for="internet">Internet</label>
+        <input type="checkbox" {{ flushedData.rent.3 ? 'checked' }} name="rent[]" value="4" id="internet">
+      </div>
+
+      <label for="deposit">Deposit *</label>
+      <input value="{{ flushedData.deposit }}" required type="text" name="deposit" placeholder="e.g. 300" id="deposit">
+
+      <label for="price_per_week">Price per week *</label>
+      <input value="{{ flushedData.price_per_week }}" required type="text" name="price_per_week" placeholder="e.g. 111.23" id="price_per_week">
+
+      <label for="comment">Comment *</label>
+      <textarea name="comment" id="comment" rows="10">{{ flushedData.comment }}</textarea>
+
+      <div class="form-title">Images *</div>
+
+      <div class="image-fields">
+        <div class="more-button">
+          <span class="add-field">Add field</span>
+          <span class="remove-field">Remove field</span>
+        </div>
+
+        <div class="image-field">
+          <label for="image1">Image nr. 1 *</label>
+          <input required type="text" name="images[new_0][title]" placeholder="Image title" id="image0">
+          <input required type="file" accept="image/*" name="images[new_0]">
+        </div>
+      </div>
+      <input type="submit" class="submit-button" value="Create">
+    </form>
+{% endblock %}

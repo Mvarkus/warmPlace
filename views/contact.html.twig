@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact us{% endblock %}
+{% block metaDescription %}Find our location and how to contact us.{% endblock %}
+{% block scripts %}
+  <script defer type="text/javascript" src="/js/ajax.js"></script>
+  <script defer type="text/javascript" src="/js/formValidator.js"></script>
+{% endblock %}
+{% block header %}
+  {{ parent() }}
+{% endblock %}
+
+{% block contactMenuLink %}active-menu{% endblock %}
+
+{% block pageTitle %}How to find and contact us{% endblock %}
+
+{% block main %}
+<noscript>
+  <p>Your browser doesn't support JavaScript or you have disabled JavaScript.</p>
+  <p>Please, download modern web browser or enable JavaScript in your browser</p>
+
+  <div>Browsers: <a href="https://www.mozilla.com/">Firefox browser</a>,
+  <a href="https://www.google.com/chrome/">Chrome browser</a>,
+  <a href="https://www.opera.com/">Opera browser</a></div>
+</noscript>
+
+<section>
+  <h2 class="simple-title"><span>Office working hours</span></h2>
+  <table class="info-table">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Hours</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Monday</td>
+        <td>10am - 6pm</td>
+      </tr>
+      <tr>
+        <td>Tuesday</td>
+        <td>10am - 6pm</td>
+      </tr>
+      <tr>
+        <td>Wednesday</td>
+        <td>10am - 6pm</td>
+      </tr>
+      <tr>
+        <td>Thursday</td>
+        <td>10am - 6pm</td>
+      </tr>
+      <tr>
+        <td>Friday</td>
+        <td>10am - 6pm</td>
+      </tr>
+      <tr>
+        <td>Saturday</td>
+        <td>10am - 6pm</td>
+      </tr>
+    </tbody>
+    <tfoot></tfoot>
+  </table>
+</section>
+
+<section id="office">
+  <h2 class="simple-title"><span>Office location</span></h2>
+  <address class="office-address"> Address: <a target="_blank" title="google" draggable="false" rel="noreferrer"
+    href="https://www.google.com/maps/search/?api=1&query=97+Kettering+Rd,+Northampton+NN1+4AU">
+    Visaginas, Lithuania
+    </a>
+  </address>
+
+  <div class="google-map">
+    <iframe rel="noreferrer" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d36068.34765062675!2d26.396987014808023!3d55.59728441097224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46c2c9342d2c0a35%3A0x400d18c70e9dbd0!2sVisaginas%2C%20Lithuania!5e0!3m2!1sen!2suk!4v1574628794978!5m2!1sen!2suk"  frameborder="1" style="border:1;" allowfullscreen=""></iframe>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Not Found{% endblock %}
+{% block header %}
+  {{ parent() }}
+{% endblock %}
+
+{% block pageTitle %}Not found{% endblock %}
+
+{% block main %}
+<div class="block-container">
+    <div class="empty-result">404 Error | Page you are looking for was not found</div>
+</div>
+{% endblock %}

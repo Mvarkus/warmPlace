@@ -1,0 +1,118 @@
+#
+# GET routes
+#
+home:
+    path:       /
+    defaults:   {controller: PropertyController::showMainPage}
+    methods:    GET
+
+about:
+    path:       /about
+    defaults:   {controller: AboutController::showMainPage}
+    methods:    GET
+
+contact:
+    path:       /contact
+    defaults:   {controller: ContactController::showMainPage}
+    methods:    GET
+
+property:
+    path:         /property/{id}
+    defaults:     {controller: PropertyController::showProperty}
+    methods:      GET
+    requirements:
+        id: '[0-9]+'
+
+properties:
+    path:         /properties
+    defaults:     {controller: PropertyController::getJsonTicketsData}
+    methods:      GET
+
+
+#
+# Admin panel routes
+#
+
+# login
+loginPage:
+    path:         /a05022019pdmi/login
+    defaults:     {controller: AdminControllers\AuthController::showMainPage}
+    methods:      GET
+
+loginAction:
+    path:         /a05022019pdmi/login
+    defaults:     {controller: AdminControllers\AuthController::loginUser}
+    methods:      POST
+
+logoutAction:
+    path:         /a05022019pdmi/logout
+    defaults:     {controller: AdminControllers\AuthController::logoutUser}
+    methods:      GET
+
+# create
+adminCreatePage:
+    path:         /a05022019pdmi/create
+    defaults:     {controller: AdminControllers\CreateController::showMainPage}
+    methods:      GET
+
+adminCreateProperty:
+    path:         /a05022019pdmi/create/property
+    defaults:     {controller: AdminControllers\CreateController::createProperty}
+    methods:      POST
+
+# update
+adminUpdatePage:
+    path:         /a05022019pdmi/update
+    defaults:     {controller: AdminControllers\UpdateController::showMainPage}
+    methods:      GET
+
+adminUpdateSeachById:
+    path:         /a05022019pdmi/update/id
+    defaults:     {controller: AdminControllers\UpdateController::searchById}
+    methods:      GET
+
+adminUpdatePropertyForm:
+    path:         /a05022019pdmi/update/property/{id}
+    defaults:     {controller: AdminControllers\UpdateController::showUpdateForm}
+    methods:      GET
+    requirements:
+        id: '[0-9]+'
+
+adminUpdatePropertyAction:
+    path:         /a05022019pdmi/update/property/{id}
+    defaults:     {controller: AdminControllers\UpdateController::updateProperty}
+    methods:      POST
+    requirements:
+        id: '[0-9]+'
+
+# delete
+adminDeletePage:
+    path:         /a05022019pdmi/delete
+    defaults:     {controller: AdminControllers\DeleteController::showMainPage}
+    methods:      GET
+
+adminDeleteSeachById:
+    path:         /a05022019pdmi/delete/id
+    defaults:     {controller: AdminControllers\DeleteController::searchById}
+    methods:      GET
+
+adminDeletePropertyShowPage:
+    path:         /a05022019pdmi/delete/property/{id}
+    defaults:     {controller: AdminControllers\DeleteController::showDeletePage}
+    methods:      GET
+    requirements:
+        id: '[0-9]+'
+
+adminDeletePropertyAction:
+    path:         /a05022019pdmi/delete/property/{id}
+    defaults:     {controller: AdminControllers\DeleteController::deleteProperty}
+    methods:      POST
+    requirements:
+        id: '[0-9]+'
+
+adminDeleteImageAction:
+    path:         /a05022019pdmi/delete/image/{id}
+    defaults:     {controller: AdminControllers\DeleteController::deleteImageById}
+    methods:      POST
+    requirements:
+        id: '[0-9]+'

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block head %}
+    <title>{% block title%}{% endblock %} - Admin panel</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/adminPanel.css">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    {% block scripts %}{% endblock %}
+  {% endblock %}
+</head>
+<body>
+<header>
+    <div class="get-in-touch">
+        <div class="contact-details">
+            <div class="detail">
+                Logged in as:
+                <span>{{ username }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="logo">
+        <span class="logo-title">Admin Panel</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a draggable="false" class="menu-button {% block createMenuLink %}{% endblock %}" href="/a05022019pdmi/create">Create</a></li>
+        <li><a draggable="false" class="menu-button {% block updateMenuLink %}{% endblock %}" href="/a05022019pdmi/update">Update</a></li>
+        <li><a draggable="false" class="menu-button {% block deleteMenuLink %}{% endblock %}" href="/a05022019pdmi/delete">Delete</a></li>
+      </ul>
+    </nav>
+</header>
+<h1 class="middle-title"><span>{% block pageTitle %}{% endblock %}</span></h1>
+<main>
+{% block main %}{% endblock %}
+</main>
+<footer>
+  <div class="copyright">
+    <span>&#169; 2019 nhl.com</span>
+  </div>
+</footer>
+</body>
+</html>

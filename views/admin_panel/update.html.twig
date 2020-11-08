@@ -1,0 +1,152 @@
+{% extends 'admin_panel/base.html.twig' %}
+
+{% block title %}Update{% endblock %}
+
+{% block header %}
+  {{ parent() }}
+{% endblock %}
+{% block scripts %}
+  <script defer type="text/javascript" src="/js/ajax.js"></script>
+  <script defer type="text/javascript" src="/js/Slider.js"></script>
+  <script defer type="text/javascript" src="/js/rentPage.js"></script>
+{% endblock %}
+{% block updateMenuLink %}active-menu{% endblock %}
+
+{% block pageTitle %}Update property{% endblock %}
+
+{% block main %}
+ <ul class="error-box">
+    {% if success is same as('true') %}
+      <li class="success">The item was updated successfully</li>
+    {% elseif success is same as('false') %}
+      <li class="error">Something went wrong</li>
+    {% endif %}
+  </ul>
+ <noscript>
+  <p>Your browser doesn't support JavaScript or you have disabled JavaScript.</p>
+  <p>Please, download modern web browser or enable JavaScript in your browser</p>
+
+  <div>Browsers: <a href="https://www.mozilla.com/">Firefox browser</a>,
+  <a href="https://www.google.com/chrome/">Chrome browser</a>,
+  <a href="https://www.opera.com/">Opera browser</a></div>
+</noscript>
+
+<div class="filters">
+  <div class="filter-top">
+    <div class="caption">Filter</div>
+    <div class="reset-button">reset</div>
+  </div>
+  <div class="filter">
+    <span class="grey-title">Type</span>
+    <ul data-filter-type="type">
+      <li class="active-filter" data-filter-value="0">Any</li>
+      <li data-filter-value="1">Flat</li>
+      <li data-filter-value="2">House</li>
+      <li data-filter-value="3">Room</li>
+    </ul>
+    <div class="extend-button" title="Extend filter"><img src="/images/icons/plus.png" alt="plus sign"></div>
+  </div>
+
+  <div class="filter-extension fade">
+    <div class="filter">
+      <span class="grey-title">Order By</span>
+      <ul data-filter-type="order-by">
+        <li data-filter-value="newest" class="active-filter">Fresh offers</li>
+        <li data-filter-value="oldest">Oldest offers</li>
+        <li data-filter-value="lowest-price">Lowest Price</li>
+        <li data-filter-value="highest-price">Highest Price</li>
+      </ul>
+    </div>
+
+    <div class="filter">
+      <span class="grey-title">Location </span>
+      <ul data-filter-type="location">
+        <li class="active-filter" data-filter-value="0">Any</li>
+        <li data-filter-value="1">NN1</li>
+        <li data-filter-value="2">NN2</li>
+        <li data-filter-value="3">NN3</li>
+        <li data-filter-value="4">NN4</li>
+        <li data-filter-value="5">NN5</li>
+        <li data-filter-value="6">NN6</li>
+      </ul>
+    </div>
+
+    <div class="filter">
+      <span class="grey-title">Bedrooms </span>
+      <ul data-filter-type="bedrooms">
+        <li class="active-filter" data-filter-value="0">Any</li>
+        <li data-filter-value="1">1</li>
+        <li data-filter-value="2">2</li>
+        <li data-filter-value="3">3</li>
+        <li data-filter-value="4">4</li>
+      </ul>
+    </div>
+    <div class="search-button filter-button"><span>Search</span></div>
+  </div>
+</div>
+
+<div class="found-items">
+  <span data-per-page="{{ showPerPage }}" class="search-result-amount">{{ totalTickets }}</span>
+  <span>properties found</span>
+</div>
+
+  <div class="block-container">
+      {% for ticket in tickets %}
+
+    <div class="ticket content-block">
+    <a class="action-button" href="http://nhl.v/a05022019pdmi/update/property/{{ticket.property_id}}">Update</a>
+      <div class="flow">
+        <div class="slider">
+
+          {% for image in ticket.images %}
+            <div class="{{ loop.index == 1 ? 'current-slide' : 'slide' }}">
+              <a href="/property/{{ ticket.property_id }}"><img src="{{ image.image_path }}" alt="{{ image.image_title }}"></a>
+              <div class="slide-number">
+                <span class="current">{{ loop.index }}</span>/<span class="total">{{ ticket.images|length }}</span>
+              </div>
+              <div class="slide-caption">{{ image.image_title }}</div>
+            </div>
+          {% endfor %}
+
+          <div class="left-slider-button slider-button"><span >&#10094;</span></div>
+          <div class="right-slider-button slider-button"><span >&#10095;</span></div>
+        </div>
+
+        <div class="ticket-info">
+          <div>
+            <span class="ticket-info-title"><img title="Price" src="/images/icons/wallet.png" alt="Wallet"></span>
+            <span>{{ ticket.price_per_week }}&pound; p/w</span>
+          </div>
+          <div>
+            <span class="ticket-info-title"><img title="Type" src="/images/icons/home.png" alt="House"></span>
+            <h2>{{ ticket.type_title }}</h2>
+          </div>
+          <div>
+            <span class="ticket-info-title"><img title="Beds" src="/images/icons/bed.png" alt="bed"></span>
+            <span>{{ ticket.available_bedrooms }}/{{ ticket.total_bedrooms }}</span>
+          </div>
+          <div>
+            <span class="ticket-info-title"><img title="Condition" src="/images/icons/check.png" alt="Checklist sheet"></span>
+            <span>{{ ticket.condition }}</span>
+          </div>
+        </div>
+      </div>
+      <a target="_blank"
+        rel="noopener"
+         title="google"
+         draggable="false"
+         href="https://www.google.com/maps/search/?api=1&query={{ ticket.address|url_encode }}">
+        <div class="adress">
+          <span>{{ ticket.address }}</span>
+        </div>
+      </a>
+    </div>
+
+    {% endfor %}
+  </div>
+
+  <div class="pagination">
+  <ul>
+  </ul>
+</div>
+{% endblock %}

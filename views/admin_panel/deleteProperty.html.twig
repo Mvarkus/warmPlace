@@ -1,0 +1,123 @@
+{% extends 'admin_panel/base.html.twig' %}
+
+{% block title %}Update{% endblock %}
+
+{% block header %}
+  {{ parent() }}
+{% endblock %}
+{% block scripts %}
+<script src="/js/admin/deletePage.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block updateMenuLink %}active-menu{% endblock %}
+
+{% block pageTitle %}Update property{% endblock %}
+
+{% block main %}
+<div class="form-title">
+  Delete property #{{ property.property_id }}
+</div>
+<table class="info-table">
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Is active</td>
+      <td>{{property.is_active}}</td>
+    </tr>
+    <tr>
+      <td>Furnishing</td>
+      <td>{{property.furnished}}</td>
+    </tr>
+    <tr>
+      <td>1 address line</td>
+      <td>{{property.first_address_line}}</td>
+    </tr>
+    <tr>
+      <td>2 address line</td>
+      <td>{{property.second_address_line}}</td>
+    </tr>
+    <tr>
+      <td>Post code</td>
+      <td>{{property.post_code}}</td>
+    </tr>
+    <tr>
+      <td>Condition</td>
+      <td>{{property.condition}}</td>
+    </tr>
+    <tr>
+      <td>Date available</td>
+      <td>{{property.available_from}}</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>{{property.type_title}}</td>
+    </tr>
+    <tr>
+      <td>Total bedrooms</td>
+      <td>{{property.total_bedrooms}}</td>
+    </tr>
+    <tr>
+      <td>Available bedrooms</td>
+      <td>{{property.available_bedrooms}}</td>
+    </tr>
+    <tr>
+      <td>Bathrooms</td>
+      <td>{{property.bathrooms_amount}}</td>
+    </tr>
+    <tr>
+      <td>Rent includes</td>
+      <td>{{property.bills_included}}</td>
+    </tr>
+    <tr>
+      <td>Deposit</td>
+      <td>{{property.deposit}}</td>
+    </tr>
+    <tr>
+      <td>Price per week</td>
+      <td>{{property.price_per_week}}</td>
+    </tr>
+    <tr>
+      <td>Price per week</td>
+      <td>{{property.price_per_week}}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="2">Comment</td>
+    </tr>
+    <tr>
+      <td colspan="2">{{property.comment}}</td>
+    </tr>
+  </tfoot>
+</table>
+<form class="delete-property"
+        action="/a05022019pdmi/delete/property/{{ property.property_id }}"
+        method="POST"
+        data-target="property #{{ property.property_id }}">
+  
+    <button class="delete-button">Delete the property</button>
+</form>
+
+
+<div class="form-title">Delete images *</div>
+
+<div class="image-fields">
+  {% for image in property.images %}
+  <div class="image-field">
+    <div class="image-label" for="image{{ image.image_id }}">Image nr. {{ image.image_id }} *</div>
+    <img src="{{ image.image_path }}" alt="">
+    <div class="image_title">
+      <span>{{image.image_title}}</span>
+    </div>
+    <form data-target="image #{{ image.image_id }}" action="/a05022019pdmi/delete/image/{{ image.image_id }}" method="POST">
+      <button class="delete-button">Delete the Image</button>
+    </form>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
