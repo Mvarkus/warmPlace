@@ -24,14 +24,13 @@ class DBConnection
         $pass    = $database_details['password'];
         $charset = $database_details['charset'];
 
-        $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
         $options = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES   => false,
         ];
 
-        $dns = "{$database_details['driver']}:host={$database_details['host']};dbname={$database_details['dbname']}:charset=utf8mb4";
+        $dsn = "{$database_details['driver']}:host={$database_details['host']};dbname={$database_details['dbname']}:charset=utf8mb4";
 
         try {
             $pdo = new PDO($dsn, $user, $pass, $options);
