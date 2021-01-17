@@ -19,6 +19,7 @@ class DBConnection
         $database_details = require CONFIG_PATH.'/database.php';
 
         $host    = $database_details['host'];
+        $driver  = $database_details['driver'];
         $db      = $database_details['dbname'];
         $user    = $database_details['user'];
         $pass    = $database_details['password'];
@@ -30,7 +31,7 @@ class DBConnection
             PDO::ATTR_EMULATE_PREPARES   => false,
         ];
 
-        $dsn = "{$database_details['driver']}:host={$database_details['host']};dbname={$database_details['dbname']}:charset=utf8mb4";
+        $dsn = "{$driver}:host={$host};dbname={$db}:charset={$charset}";
 
         try {
             $pdo = new PDO($dsn, $user, $pass, $options);
